@@ -62,7 +62,7 @@ module "vnet_peering" {
   resource_group_1_name         = module.resource_group.resource_group_name
   diff_subs_resource_group_name = data.azurerm_resource_group.peer-rg.name
 
- providers = {
+  providers = {
     azurerm      = azurerm
     azurerm.peer = azurerm.peer
   }
