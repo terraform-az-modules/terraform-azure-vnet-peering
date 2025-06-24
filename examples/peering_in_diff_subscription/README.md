@@ -1,46 +1,60 @@
 <!-- BEGIN_TF_DOCS -->
 
-# Terraform Azure Module Template
+# Azure VNET Peering Setup
 
-This directory contains an example usage of the **terraform-azure-module-template**. It demonstrates how to use the module with default settings or with custom configurations.
+This configuration demonstrates cross-resource group VNET peering using Terraform modules and data sources.
 
 ---
 
-## 📋 Requirements
+## ✅ Requirements
 
 | Name      | Version   |
 |-----------|-----------|
 | Terraform | >= 1.6.6  |
-| Azurerm   | >= 3.116.0|
+| Azurerm   | >= 3.116.0 |
 
 ---
 
 ## 🔌 Providers
 
-None specified in this example.
+| Name          | Version |
+|---------------|---------|
+| azurerm.peer  | 3.116.0 |
 
 ---
 
 ## 📦 Modules
 
-None specified in this example.
+| Name            | Source                                      | Version |
+|-----------------|---------------------------------------------|---------|
+| resource_group  | terraform-az-modules/resource-group/azure   | 1.0.0   |
+| vnet            | terraform-az-modules/vnet/azure             | 1.0.0   |
+| vnet_peering    | ../..                                       | n/a     |
 
 ---
 
 ## 🏗️ Resources
 
-No resources are directly created in this example.
+| Name                         | Type        |
+|------------------------------|-------------|
+| azurerm_resource_group.peer-rg | data source |
+| azurerm_virtual_network.peer-staging-vnet | data source |
 
 ---
 
 ## 🔧 Inputs
 
-No input variables are defined in this example.
+_No input variables are defined in this configuration._
 
 ---
 
 ## 📤 Outputs
 
-No outputs are defined in this example.
+| Name                  | Description                                                           |
+|-----------------------|-----------------------------------------------------------------------|
+| `vnet_peer_1_id`      | The ID of the virtual network peering on the first VNET               |
+| `vnet_peer_1_name`    | The name of the virtual network peering on the first VNET             |
+| `vnet_peer_2_id`      | The ID of the virtual network peering on the second VNET              |
+| `vnet_peer_2_name`    | The name of the virtual network peering on the second VNET            |
 
 <!-- END_TF_DOCS -->

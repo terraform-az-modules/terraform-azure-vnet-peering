@@ -3,7 +3,6 @@ provider "azurerm" {
   subscription_id = ""
 }
 
-
 provider "azurerm" {
   features {}
   alias           = "peer"
